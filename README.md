@@ -12,6 +12,10 @@ Format the results as a list.
 
 # How to run
 This can be easily run locally even with a SimpleHTTPServer on the mac as follow.
-- cd angularDemo
-- python -m SimpleHTTPServer 8889
-- navigate to localhost:8889/index.html
+```sh
+$ cd angularDemo
+$ python -m SimpleHTTPServer 8889
+```
+- go to [localhost]
+
+[localhost]: <http://localhost:8889/index.html>
