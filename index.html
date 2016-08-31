@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>YQL local search</title>
+    <base href="/it">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="https://www.google.com/images/branding/product/ico/googleg_lodp.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/includes/styles/appDemo.css"/>
+    <script type="text/javascript" src="/includes/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/includes/angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/configs/configs.js"></script>
+    <script type="text/javascript" src="/app/services/services.js"></script>
+    <script type="text/javascript" src="/app/controllers/restaurantSearchController.js"></script>
+</head>
+<body>
+    <div class="appDashboardBg" ng-cloak ng-controller="restaurantSearch as restaurantSearchCtl">
+        <div class="searchBar">
+            <div class="searchFoodType floatLeft" >
+                <div class="searchFoodInputWrapper">
+                    <span>Find :</span>
+                    <input id="foodType" placeholder="pizza,steak"/>
+                </div>
+            </div>
+            <div class="searchNear floatLeft" >
+                <div class="searchNearInputWrapper">
+                    <span>Near :</span>
+                    <input id="location" placeholder="san jose"
+                           ng-keyup="$event.keyCode == 13 && restaurantSearchCtl.searchBusinesses()"/>
+                </div>
+            </div>
+            <button class="searchBtn" ng-click="restaurantSearchCtl.searchBusinesses()">Go !</button>
+        </div>
+        <div class="searchWithinResults errorText"
+             ng-show="restaurantSearchCtl.isErrorsOccuredDuringSearch()">
+            There were errors running the search. Please try a different combination.
+        </div>
+        <div class="searchWithinResults errorText"
+             ng-show="restaurantSearchCtl.isNoSearchResultsFound() && !restaurantSearchCtl.isErrorsOccuredDuringSearch()">
+            No Search results were found. Please try a different combination.
+        </div>
+        <div class="searchWithinResults" ng-show="restaurantSearchCtl.resultSets.length>0">
+            <div>Search within results: <input ng-model="searchText"></div>
+            <div class="sortButtonContainer overFlowAuto">
+                <div class="floatLeft">
+                     Sort By:
+                </div>
+                <div class="floatLeft">
+                    <button ng-click="restaurantSearchCtl.sortBy('AverageRating')">
+                        Average Rating
+                        <span class="sortorder" ng-show="restaurantSearchCtl.sortProperty === 'AverageRating'"
+                              ng-class="{reverse: restaurantSearchCtl.reverseSortDirection} "></span>
+                    </button>
+
+                </div>
+                <div class="floatLeft">
+                    <button ng-click="restaurantSearchCtl.sortBy('Distance')">
+                        Distance
+                        <span class="sortorder" ng-show="restaurantSearchCtl.sortProperty === 'Distance'"
+                              ng-class="{reverse: restaurantSearchCtl.reverseSortDirection}"></span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="resultRowsContainer">
+            <div id="resultRowObj_{{$index+1}}" class="resultRow"
+                 ng-repeat="resultRowObj in restaurantSearchCtl.resultSets |
+            orderBy:restaurantSearchCtl.getSortProperty:restaurantSearchCtl.reverseSortDirection |
+             filter:searchText track by $index">
+                <div class="businessDetails">
+                    <h4>{{$index+1}}. <span>{{resultRowObj.Title}}</span></h4>
+                    <div>Average Rating:  {{resultRowObj.Rating.AverageRating}}</div>
+                    <div>Total Reviews: {{resultRowObj.Rating.TotalReviews}}</div>
+                    <div>
+                        <a class="websiteLink" ng-href="{{resultRowObj.BusinessUrl}}" target="_blank">Website</a>
+                        <a class="moreInfoLink" ng-href="{{resultRowObj.Url}}" target="_blank">More Info</a>
+                    </div>
+                    <div>Distance: {{resultRowObj.Distance}}</div>
+                </div>
+                <div class="businessAddress">
+                    <div>{{resultRowObj.Address}}</div>
+                    <div>{{resultRowObj.City}}</div>
+                    <div>{{resultRowObj.State}}</div>
+                    <div>{{resultRowObj.Phone}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

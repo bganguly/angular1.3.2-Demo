@@ -1,0 +1,159 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+.cursorPointer {
+    cursor:pointer;
+}
+
+.displayBlock {
+    display:block;
+}
+
+.displayNone {
+    display:none;
+}
+
+.overFlowAuto {
+    overflow: auto;
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.floatRight, input[type='button'].floatRight  {
+    float: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.errorText {
+    color:crimson;
+}
+
+.searchBar {
+    padding:1% 5%;
+    font-size: 2em;
+    margin:40px auto;
+}
+
+ .resultRow {
+    margin: 20px auto;
+}
+
+.searchBar, .resultRow {
+    width:92%;
+    overflow: auto;
+}
+
+.searchBar .searchFoodType{
+    width: 32%;
+    margin-left: 10%;
+    float: left;
+}
+
+.searchBar  .searchFoodInputWrapper,.searchBar  .searchNearInputWrapper{
+    width: 100%;
+}
+
+.searchBar  .searchFoodInputWrapper span, .searchBar  .searchNearInputWrapper span{
+    float: left;
+    margin-top:1%;
+}
+
+.searchBar  .searchFoodInputWrapper input, .searchBar  .searchNearInputWrapper input{
+    margin-left: 3%;
+    font-size: inherit;
+    text-align: center;
+}
+
+.searchBar .searchNear{
+    float: left;
+    width: 32%;
+}
+
+.searchBar .searchBtn{
+    width: 7%;
+    float: left;
+    font-size: inherit;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
+    padding:2px 0;
+    border: none;
+    transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s;
+    outline:0;
+}
+
+.searchBar .searchBtn:hover{
+    background-color: white;
+    color: #4CAF50;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.searchWithinResults {
+    font-size: 1.8em;
+    margin-left: 28%;
+    margin-bottom: 40px;
+    width: 65%;
+}
+
+.searchWithinResults input{
+    font-size: inherit;
+    width: 25%;
+}
+
+.searchWithinResults .sortButtonContainer.overFlowAuto{
+    font-size: 0.6em;
+    margin:40px 0 20px 180px;
+}
+
+.searchWithinResults .sortButtonContainer .floatLeft:first-child{
+    margin-top: 3px;
+}
+
+.searchWithinResults .sortButtonContainer .floatLeft:not(:first-child){
+    margin-left: 20px;
+}
+
+.searchWithinResults button{
+    font-size: inherit;
+}
+
+.businessDetails, .businessAddress {
+    float:left;
+    width:25%;
+}
+
+.businessDetails {
+    padding-left: 25%;
+}
+
+.businessDetails h4{
+    margin: 2% 0;
+}
+
+.businessDetails h4 span{
+    margin-left: 2%;
+}
+
+.moreInfoLink {
+    margin-left:3%;
+}
+
+.businessAddress {
+    margin-top: 2%;
+}
+
+.sortorder:after {
+    content: '\25b2';   /* BLACK UP-POINTING TRIANGLE*/
+}
+.sortorder.reverse:after {
+    content: '\25bc';   /* BLACK DOWN-POINTING TRIANGLE*/
+}
