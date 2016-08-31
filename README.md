@@ -7,4 +7,10 @@ At a minimum provide the following
 - Allow searching by location
 - Allow selection type of food (e.g. Pizza, Italian, Tapas, etc.)
 - Allow sorting by rating or distance
-Format the results as a list. 
+Format the results as a list.
+
+# How to run
+This can be easily run locally even with a SimpleHTTPServer on the mac as follow.
+- cd angularDemo
+- python -m SimpleHTTPServer 8889
+- navigate to localhost:8889/index.html
