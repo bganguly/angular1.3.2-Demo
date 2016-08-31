@@ -7,6 +7,7 @@ At a minimum provide the following
 - Allow searching by location
 - Allow selection type of food (e.g. Pizza, Italian, Tapas, etc.)
 - Allow sorting by rating or distance
+
 Format the results as a list.
 
 # How to run
