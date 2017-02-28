@@ -13,6 +13,7 @@ Format the results as a list.
 # How to run
 This can be easily run locally even with a SimpleHTTPServer on the mac as follow.
 ```sh
+# git clone this repo
 $ cd angularDemo
 $ python -m SimpleHTTPServer 8889
 ```
